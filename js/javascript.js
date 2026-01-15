@@ -2651,6 +2651,14 @@ function abrirTutorial(index) {
 
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden'; // Bloquea el scroll de fondo
+
+    // --- SOLUCIÓN DE SCROLL GARANTIZADA ---
+    setTimeout(() => {
+        const contenedorCuerpo = document.querySelector('.modal-contenido');
+        if (contenedorCuerpo) {
+            contenedorCuerpo.scrollTo({ top: 0, behavior: 'instant' });
+        }
+    }, 10);
 }
 
 // Cierra el tutorial
@@ -2795,4 +2803,5 @@ mostrarNotas(misNotas);
 
 // 3. Ahora que hay contenido, movemos la pantalla al inicio
 window.scrollTo(0, 0);
+
 
